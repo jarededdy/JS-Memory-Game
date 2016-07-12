@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Learning PHP</title>
+  <meta name="description" content="A memory game to challenge your brain and keep your mind sharp.">
+  <meta name="author" content="Sites Realized">
+  <script type="text/javascript" src="assets/js/cards.js"> </script>
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<div class="container gameboard">
+    <!-- The cards will load here randomly from functions.js using a JSON file -->
+    <script>
+    $( document ).ready(function() {
+      function myFunction() {
+        var obj = JSON.parse(text);
+        alert( obj.employees[0].firstName );
+      };
+      myFunction();
+    });
+    </script>
+
+    
+  </div>
+</body>
+</html>
