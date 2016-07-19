@@ -13,21 +13,26 @@
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <style>
+   .card {
+    height:200px;
+    width:100px;
+    margin-right:25px;
+    float:left;
+    background-color:#eaeaea;
+   }
+  </style>
 </head>
+<script>
+  $( document ).ready(function() {
+    
+    createCards();
 
+  });
+</script>
 <body>
 	<div class="container gameboard">
     <!-- The cards will load here randomly from functions.js using a JSON file -->
-    <script>
-    $( document ).ready(function() {
-      function myFunction() {
-        alert( cards[0].color );
-      };
-      myFunction();
-    });
-    </script>
-
-    
   </div>
 </body>
 </html>
