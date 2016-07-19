@@ -1,21 +1,15 @@
 var cards = [
 	{ 
 		value: 10,
-		color: "#ff0000",
-		height:200,
-		width:100
+		color: "#ff0000"
 	},
 	{ 
 		value: 20,
-		color: "#ff6600",
-		height:200,
-		width:100
+		color: "#ff6600"
 	},
 	{ 
 		value: 30,
-		color: "#0000ff",
-		height:200,
-		width:100
+		color: "#0000ff"
 	}
 ];
 
