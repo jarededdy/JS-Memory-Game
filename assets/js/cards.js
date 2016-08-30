@@ -49,4 +49,54 @@ function createCards() {
 function showValue(i) {
 	alert( allCards[i].value ); //reveals the value of the card
 	$('.number-'+i).css("background-color", allCards[i].color); //reveals the color of the card
+	checkCards(i);
+}
+
+var firstCard = 0;
+var secondCard = 0;
+var score = 0;
+var firstCardClicked;
+var secondCardClicked;
+
+function checkCards (i) {
+	var cardVal = allCards[i].value;
+
+	if (firstCard == 0) {
+		firstCard = cardVal;
+		firstCardClicked = "number-" + i;
+	}
+	else {
+		secondCard = 0;
+		secondCardClicked = "number-" + i;
+	}
+
+	if (secondCard !=0) {
+		function checkValues() {
+			if (firstCard == secondCard) {
+				//add a point and show it on the scoreboard
+				//var score ++;
+				//$('.scoreboard').html(score);
+
+				//remove the cards from the game
+				$(firstCardClicked).css("display", "none");
+				$(secondCardClicked).css("display", "none");
+
+				// reset values to 0
+				firstCard=0;
+				secondCard=0;
+			} else {
+				//take away a point and show it on the scoreboard
+				//var score --;
+				//$('.scoreboard').html(score);
+
+				//reset background colors to grey
+				$(firstCardClicked).css("background-color", "#eaeaea");
+				$(secondCardClicked).css("background-color", "#eaeaea");
+
+				// reset values to 0
+				firstCard=0;
+				secondCard=0;
+			}
+		}
+	}
 }
