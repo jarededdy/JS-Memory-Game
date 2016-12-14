@@ -1,3 +1,13 @@
+//setting my global variables
+var firstCard;
+var secondCard;
+var score = 0;
+var bestRecord = 1000000;
+var firstCardClicked = false;
+var secondCardClicked = false;
+var firstCardClass;
+var secondCardClass;
+
 var cards = [
 	{ 
 		value: 10,
@@ -10,6 +20,22 @@ var cards = [
 	{ 
 		value: 30,
 		color: "#0000ff"
+	},
+	{ 
+		value: 40,
+		color: "#00ff00"
+	},
+	{ 
+		value: 50,
+		color: "#efc849"
+	},
+	{ 
+		value: 60,
+		color: "#6348bd"
+	},
+	{ 
+		value: 70,
+		color: "#e57b86"
 	}
 ];
 
@@ -35,8 +61,6 @@ function shuffle(array) { //shuffle array that will shuffle the indexes of any a
   return array;
 }
 
-
-
 function createCards() {
 	shuffle(allCards); //shuffle the allCards array indexes
 	var i = 0; //set to 0 always because thats the beginning of the array
@@ -51,17 +75,8 @@ function showValue(i) {
 	$('.number-'+i).css("background-color", allCards[i].color); //reveals the color of the card
 	setTimeout(function(){
 		checkCards(i);
-	}, 1000);
+	}, 600);
 }
-
-var firstCard;
-var secondCard;
-var score = 0;
-var bestRecord = 1000000;
-var firstCardClicked = false;
-var secondCardClicked = false;
-var firstCardClass;
-var secondCardClass;
 
 function checkCards (i) {
 	var cardVal = allCards[i].value;
@@ -87,8 +102,8 @@ function checkValues(firstCard, secondCard, firstCardClass, secondCardClass) {
 			$('.scoreboard').html(score);
 
 			//remove the cards from the game
-			$(firstCardClass).css("display", "none");
-			$(secondCardClass).css("display", "none");
+			$(firstCardClass).css("visibility", "hidden");
+			$(secondCardClass).css("visibility", "hidden");
 
 			// reset values to 0
 			firstCard=0;

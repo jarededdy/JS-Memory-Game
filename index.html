@@ -7,21 +7,9 @@
   <title>Learning PHP</title>
   <meta name="description" content="A memory game to challenge your brain and keep your mind sharp.">
   <meta name="author" content="Sites Realized">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <script type="text/javascript" src="assets/js/cards.js"> </script>
   <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <style>
-   .card {
-    height:200px;
-    width:100px;
-    margin-right:25px;
-    float:left;
-    background-color:#eaeaea;
-   }
-  </style>
 </head>
 <script>
   $( document ).ready(function() {
@@ -30,14 +18,18 @@
   });
 </script>
 <body>
-  <h1>Test Your Memory</h1>
+  <h1 class="title">Test Your Memory</h1>
+  <div class="scoreboard-wrapper">
+  <h2>Scoreboard</h2>
+  <h3>Turns Taken (Lower is better)</h3>
+  <h4 class="scoreboard">0</h4>
+  <h3>Best Record</h3>
+  <h4 class="best-record"></h4>
+  <div class="reset-button-wrapper"><a class="reset-button" onClick="resetBoard()">Reset Game</a></div>
+  </div>
 	<div class="container gameboard">
     <!-- The cards will load here randomly from functions.js using a JSON file -->
   </div>
-  <h2>Turns Taken (Lower is better)</h2>
-  <h3 class="scoreboard">0</h3>
-  <h2>Best Record</h2>
-  <h3 class="best-record"></h3>
-  <div class="reset-buton"><button onClick="resetBoard()">Reset Game</button></div>
+  
 </body>
 </html>

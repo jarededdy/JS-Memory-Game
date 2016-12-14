@@ -1,0 +1,47 @@
+/*This is all the styling for the memory game application*/
+
+.card {
+border-radius:4px;
+height:200px;
+width:200px;
+margin:15px;
+display:inline-block;
+background-color:#eaeaea;
+}
+.gameboard {
+margin:25px auto;
+padding:25px;
+background:#232323;
+text-align: center;
+}
+.reset-button {
+padding:10px;
+background-color:#f73b4f;
+color:#fff;
+font-weight:700;
+font-size:2em;
+border-radius:4px;
+}
+.reset-button-wrapper {
+margin:40px 20px 20px 20px;
+}
+.scoreboard-wrapper {
+border-radius:10px;
+font-family:"ariel", sans-serif;
+text-align:center;
+padding:25px;
+width:300px;
+color:#fff;
+background:#232323;
+border:#eaeaea solid 2px;
+margin:50px auto 70px auto;
+}
+.scoreboard-wrapper h2 {
+text-decoration:underline;
+}
+.title {
+text-align: center;
+font-family: "ariel", sans-serif;
+font-size:100px;
+color:#232323;
+}
