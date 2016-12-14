@@ -48,61 +48,79 @@ function createCards() {
 };
 
 function showValue(i) {
-	alert( allCards[i].value ); //reveals the value of the card
 	$('.number-'+i).css("background-color", allCards[i].color); //reveals the color of the card
-	checkCards(i);
+	setTimeout(function(){
+		checkCards(i);
+	}, 1000);
 }
 
-var firstCard = 0;
-var secondCard = 0;
+var firstCard;
+var secondCard;
 var score = 0;
-var firstCardClicked;
-var secondCardClicked;
+var bestRecord = 1000000;
+var firstCardClicked = false;
+var secondCardClicked = false;
+var firstCardClass;
+var secondCardClass;
 
 function checkCards (i) {
 	var cardVal = allCards[i].value;
+	if (firstCardClicked == false) { //if we haven't clicked any cards yet this runs
+		firstCard = cardVal; //get the card clicked's value
+		firstCardClass = ".number-" + i; //grab the class of the first card so we can change the background color later
+		firstCardClicked = true; //we have clicked the first card so this should be true so we will run the next if statement
+		return firstCard;
+	} else if (firstCardClicked == true && secondCardClicked == false) {
+		secondCard = cardVal
+		//alert ("first Card Value is " + firstCard + " second Card Value is " + secondCard);
+		secondCardClass = ".number-" + i;//grab the class of the second card so we can change the background color later
+		checkValues(firstCard, secondCard, firstCardClass, secondCardClass);
+  	firstCardClicked = false;
+  	secondCardClicked = false;
+	}; 
+};
 
-	if (firstCard == 0) {
-		firstCard = cardVal;
-		firstCardClicked = "number-" + i;
-	}
-	else {
-		secondCard = cardVal;
-		secondCardClicked = "number-" + i;
-	}
+function checkValues(firstCard, secondCard, firstCardClass, secondCardClass) {
+		if (firstCard == secondCard) {
+			//add a point and show it on the scoreboard
+			score ++;
+			$('.scoreboard').html(score);
 
-	if (secondCard !=0) {
-		function checkValues() {
-			if (firstCard == secondCard) {
-				//add a point and show it on the scoreboard
-				//var score ++;
-				//$('.scoreboard').html(score);
+			//remove the cards from the game
+			$(firstCardClass).css("display", "none");
+			$(secondCardClass).css("display", "none");
 
-				//remove the cards from the game
-				$(firstCardClicked).css("display", "none");
-				$(secondCardClicked).css("display", "none");
+			// reset values to 0
+			firstCard=0;
+			secondCard=0;
+		} else {
+			//take away a point and show it on the scoreboard
+			score ++;
+			$('.scoreboard').html(score);
 
-				// reset values to 0
-				firstCard=0;
-				secondCard=0;
-			} else {
-				//take away a point and show it on the scoreboard
-				//var score --;
-				//$('.scoreboard').html(score);
+			//reset background colors to grey
+			$(firstCardClass).css("background-color", "#eaeaea");
+			$(secondCardClass).css("background-color", "#eaeaea");
 
-				//reset background colors to grey
-				$(firstCardClicked).css("background-color", "#eaeaea");
-				$(secondCardClicked).css("background-color", "#eaeaea");
-
-				// reset values to 0
-				firstCard=0;
-				secondCard=0;
-			}
-		}
-	}
-}
+			// reset values to 0
+			firstCard=0;
+			secondCard=0;
+		};
+};
 
 function resetBoard () {
+	if (bestRecord > score) {
+		bestRecord = score;
+		$('.best-record').html(bestRecord);
+	};
+	firstCard = 0;
+	secondCard = 0;
+	score = 0;
+	firstCardClicked = false;
+	secondCardClicked = false;
+	firstCardClass;
+	secondCardClass;
+	$('.scoreboard').html(score);
 	$('.card').css("background-color", "#eaeaea");
 	$('.gameboard').html("");
 	createCards();
