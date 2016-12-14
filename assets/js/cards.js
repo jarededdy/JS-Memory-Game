@@ -66,7 +66,7 @@ function checkCards (i) {
 		firstCardClicked = "number-" + i;
 	}
 	else {
-		secondCard = 0;
+		secondCard = cardVal;
 		secondCardClicked = "number-" + i;
 	}
 
