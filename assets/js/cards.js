@@ -35,9 +35,10 @@ function shuffle(array) { //shuffle array that will shuffle the indexes of any a
   return array;
 }
 
-shuffle(allCards); //shuffle the allCards array indexes
+
 
 function createCards() {
+	shuffle(allCards); //shuffle the allCards array indexes
 	var i = 0; //set to 0 always because thats the beginning of the array
 	while (allCards[i]) { //loops through each array index
 	  $('.gameboard').append("<a class=\"card number-" + i + "\" data-value=\"" + allCards[i].value + "\" onClick=\"showValue("+i+")\";></a>"); //loops through the cards array and creates HTML elements based on each object in the array
@@ -99,4 +100,10 @@ function checkCards (i) {
 			}
 		}
 	}
+}
+
+function resetBoard () {
+	$('.card').css("background-color", "#eaeaea");
+	$('.gameboard').html("");
+	createCards();
 }
